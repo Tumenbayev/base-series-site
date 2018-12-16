@@ -76,5 +76,6 @@
 <script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
 <!-- main JS -->
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/player.js') }}"></script>
 </body>
 </html>

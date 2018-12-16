@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" media="all" />
     <!-- Responsive CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" media="all" />
+    <link rel="stylesheet" href="https://unpkg.com/plyr@3/dist/plyr.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -51,22 +52,8 @@
                     <li><a class="login-popup" href="#">Login</a></li>
                 </ul>
             </div>
-            <div class="menu-area">
-                <div class="responsive-menu"></div>
-                <div class="mainmenu">
-                    <ul id="primary-menu">
-                        @foreach ($menu->getMenu() as $item)
-                            <li><a @if($menu->current() == \Route::current()->getName()) class="active" @endif href="{{ route($item['route']) }}">{{ $item['title'] }} @if(isset($item['submenu'])) <i class="icofont icofont-simple-down"></i>@endif</a></li>
-                            @if(false)
-                            <ul>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                                <li><a href="movie-details.html">Movie Details</a></li>
-                            </ul>
-                            @endif
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+            @component('components.menu', ['menu' => $menu])
+            @endcomponent
         </div>
     </div>
 </header>
